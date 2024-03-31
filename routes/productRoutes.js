@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 router.post('/', async (req, res) => {
     try {
         // Extract other fields from req.body
-        const { productName, price, imageUrl, brandId, categoryId, subcategoryId } = req.body;
+        const { productName, price, imageUrl, category } = req.body;
 
         // Check if image file is provided
        
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
             productName,
             price,
             imageUrl,
-            categoryId
+            category
             
         });
 
@@ -45,9 +45,7 @@ router.post('/', async (req, res) => {
 router.get('/get', async (req, res) => {
     try {
         const products = await Product.find()
-            
-            .populate('categoryId', 'categoryName')
-            .select('productName price imageUrl');
+            .select('productName price imageUrl category description');
 
         const productsWithDetails = products.map(product => {
             return {
@@ -73,7 +71,7 @@ router.get('/:productId', async (req, res) => {
     try {
         const product = await Product.findById(productId)
             
-            .select('productName price imageUrl');
+            .select('productName price imageUrl category description');
 
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
