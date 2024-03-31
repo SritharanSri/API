@@ -54,7 +54,7 @@ router.get('/get', async (req, res) => {
                 _id: product._id, // Include product ID
                 productName: product.productName,
                 description:  product.description,
-                categoryName: product.categoryId.categoryName,
+                category: product.category,
                 price: product.price,
                 imageUrl: product.imageUrl
             };
@@ -83,7 +83,7 @@ router.get('/:productId', async (req, res) => {
             _id: product._id,
             productName: product.productName,
             description: product.description,
-            categoryName: product.categoryId.categoryName,
+            category: product.category,
             price: product.price,
             imageUrl: product.imageUrl
         };

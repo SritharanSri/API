@@ -14,9 +14,9 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     imageUrl: String,
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+    category: {
+        type: String,
+        required: true
     },
     created_date: {
         type: Date,

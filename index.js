@@ -23,7 +23,6 @@ app.use('/images', express.static('images'));
 
 // Routes
 app.use('/products', productRoutes);
-app.use('/category', categoryRoutes);
 app.use('/getid', productRoutes);
 app.use('/cart',cartRoutes);
 
