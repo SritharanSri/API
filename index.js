@@ -3,7 +3,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const productRoutes = require('./routes/productRoutes');
-const categoryRoutes = require('./routes/categoryRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
 const app = express();
