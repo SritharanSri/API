@@ -72,7 +72,7 @@ router.get('/:productId', async (req, res) => {
 
     try {
         const product = await Product.findById(productId)
-            .populate('categoryId', 'categoryName')
+            
             .select('productName price imageUrl');
 
         if (!product) {
