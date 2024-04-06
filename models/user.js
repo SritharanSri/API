@@ -19,7 +19,22 @@ const userSchema = new mongoose.Schema({
     created_date: {
         type: Date,
         default: Date.now
+    },
+    phoneNumber: {
+        type: Number,
+        minlength: 10,
+        required: true
+    },
+    DateOfBirth:{
+        type :Date,
+        required:true
+    },
+    Gender:{
+        type:String,
+        required:true
     }
+
+
 });
 
 module.exports = mongoose.model('User', userSchema);

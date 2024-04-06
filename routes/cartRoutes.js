@@ -5,7 +5,7 @@ const Cart = require('../models/cart');
 router.post('/', async (req, res) => {
     try {
         // Create a new cart entry with the data from the request body
-        const { productId, quantity, size } = req.body;
+        const { productId, quantity } = req.body;
         const cartItem = { productId, quantity, price };
         const cart = await Cart.create({ products: [cartItem] });
 
