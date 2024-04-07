@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Cart = require('../models/cart');
 
-router.post('/', async (req, res) => {
+router.post('/cart', async (req, res) => {
     try {
         // Create a new cart entry with the data from the request body
         const { productId, quantity } = req.body;
