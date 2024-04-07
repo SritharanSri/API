@@ -18,4 +18,19 @@ router.post('/cart', async (req, res) => {
     }
 });
 
+router.get('/cart/get', async (req, res) => {
+    try {
+        // Fetch all cart entries
+        const carts = await Cart.find();
+
+        // Respond with the fetched cart entries
+        res.status(200).json(carts);
+    } catch (error) {
+        // Handle any errors that occur during cart retrieval
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+
 module.exports = router;
